@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pk.aspirasoft.tasbih">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
+
+        <activity android:name=".scenes.LaunchScreen" android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".scenes.CounterDrawer" android:screenOrientation="portrait" />
+        <activity android:name=".scenes.ActiveCounter" android:screenOrientation="portrait" android:parentActivityName=".scenes.CounterDrawer" />
+        <activity android:name=".scenes.CreateCounter" android:screenOrientation="portrait" android:parentActivityName=".scenes.CounterDrawer" />
+    </application>
+
+</manifest>

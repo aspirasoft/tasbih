@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Tasbih</string>
+    <string name="app_version">Tasbih 1.1</string>
+
+    <string name="app_id" translatable="false">5243770836</string>
+    <string name="ad_unit_id" translatable="false">ca-app-pub-6293532072634065/4510334430</string>
+
+    <string name="title_counters">Counters</string>
+
+    <string name="placeholder_counter_value">Counter Value</string>
+    <string name="placeholder_memo">No notes attached.</string>
+
+    <string name="label_add">Add</string>x
+    <string name="label_add_description">Add a new counter.</string>
+    <string name="label_decrement">Minus</string>
+    <string name="label_increment">Plus</string>
+
+    <string name="label_name">Name</string>
+    <string name="label_name_description">Title of the counter.</string>
+
+    <string name="label_memo">Memo</string>
+    <string name="label_memo_description">(Optional) Notes about the counter e.g. recite 1000 times daily, read 100 times on Fridays, etc.</string>
+
+    <string name="label_yes">Okay</string>
+    <string name="label_no">Cancel</string>
+
+    <string name="hint_change_layout">Toggle View</string>
+    <string name="hint_delete">Delete</string>
+    <string name="hint_reset">Reset</string>
+
+    <string name="confirmation_prompt">Are you sure?</string>
+    <string name="delete_confirmation">Do you really want to delete the counter? Proceed with caution. This action is permanent.</string>
+    <string name="reset_confirmation">This action would reset the counter value. Proceed with caution.</string>
+</resources>

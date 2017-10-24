@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">تسبیح</string>
+    <string name="app_version">تسبیح ١.١</string>
+
+    <string name="title_counters">تسبیح ہوم</string>
+
+    <string name="placeholder_counter_value">تعداد</string>
+    <string name="placeholder_memo">کوئی نوٹ منسلک نہیں ہے</string>
+
+    <string name="label_add">بنائیں</string>
+    <string name="label_add_description">نئی تسبیح بنائیں</string>
+    <string name="label_decrement">مائنس</string>
+    <string name="label_increment">پلس</string>
+
+    <string name="label_name">نام</string>
+    <string name="label_name_description">تسبیح کا نام</string>
+
+    <string name="label_memo">اختیاری نوٹ</string>
+    <string name="label_memo_description"> مثال کے طور پر روزانہ ہزار بار پڑھیں، جمعہ کو دس لاکھ بار پڑھیں</string>
+
+    <string name="label_yes">ٹھیک ہے</string>
+    <string name="label_no">منسوخ کریں</string>
+
+    <string name="hint_change_layout">ترتیب بدلیں</string>
+    <string name="hint_reset">صفر کریں</string>
+    <string name="hint_delete">حذف کریں</string>
+
+    <string name="confirmation_prompt">احتیاط کریں</string>
+    <string name="delete_confirmation">یہ کارروائی اس تسبیح کو حذف کر دے گی</string>
+    <string name="reset_confirmation">یہ کارروائی اس تسبیح کو صفر کر دے گی</string>
+</resources>
