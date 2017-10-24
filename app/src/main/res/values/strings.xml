@@ -30,7 +30,8 @@
     <string name="confirmation_prompt">Are you sure?</string>
     <string name="delete_confirmation">Do you really want to delete the counter? Proceed with caution. This action is permanent.</string>
     <string name="reset_confirmation">This action would reset the counter value. Proceed with caution.</string>
-    <string name="label_finished">Finished: %1$d</string>
+
+    <string name="label_finished">Completed: %1$d</string>
 
     <string name="counter_1">الحمد لله</string>
     <string name="counter_1_desc">All the praises and thanks be to Allah</string>
