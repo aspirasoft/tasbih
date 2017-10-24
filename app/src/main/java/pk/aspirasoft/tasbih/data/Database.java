@@ -23,6 +23,16 @@ class Database {
         return ourInstance;
     }
 
+    void initialize() {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("isInitialized", true);
+        editor.apply();
+    }
+
+    boolean isInitialized() {
+        return preferences.getBoolean("isInitialized", false);
+    }
+
     void put(String value) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("counters", value);

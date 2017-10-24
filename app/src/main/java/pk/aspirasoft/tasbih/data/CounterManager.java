@@ -9,8 +9,11 @@ public class CounterManager extends ArrayList<Counter> {
     private static CounterManager ourInstance;
     private final Database database;
 
+    private boolean isInitialized = false;
+
     private CounterManager(Activity activity) {
         database = Database.getInstance(activity);
+        isInitialized = database.isInitialized();
         diskIn();
     }
 
@@ -20,6 +23,18 @@ public class CounterManager extends ArrayList<Counter> {
         }
 
         return ourInstance;
+    }
+
+    public void addDefaultCounters(ArrayList<Counter> counters) {
+        for (Counter counter : counters) {
+            this.add(counter);
+        }
+        diskOut();
+        database.initialize();
+    }
+
+    public boolean isInitialized() {
+        return isInitialized;
     }
 
     public void diskOut() {
@@ -39,8 +54,12 @@ public class CounterManager extends ArrayList<Counter> {
 
         for (String s : counters.split("\n")) {
             if (!s.replace("\t", "").replace(" ", "").equals("")) {
-                Counter counter = new Counter(s);
-                add(counter);
+                try {
+                    Counter counter = new Counter(s);
+                    add(counter);
+                } catch (ArrayIndexOutOfBoundsException ignored) {
+
+                }
             }
         }
     }

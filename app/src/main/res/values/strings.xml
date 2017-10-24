@@ -5,20 +5,20 @@
     <string name="app_id" translatable="false">5243770836</string>
     <string name="ad_unit_id" translatable="false">ca-app-pub-6293532072634065/4510334430</string>
 
-    <string name="title_counters">Prayers</string>
+    <string name="title_counters">Tasbih</string>
 
-    <string name="placeholder_memo">No translation added.</string>
+    <string name="placeholder_memo">No description added.</string>
 
     <string name="label_add">Add</string>x
-    <string name="label_add_description">Add a new prayer.</string>
+    <string name="label_add_description">Create Tasbih</string>
     <string name="label_decrement">Minus</string>
     <string name="label_increment">Plus</string>
 
-    <string name="label_name">Name</string>
+    <string name="label_name">Title</string>
     <string name="label_name_description">Name of the prayer.</string>
 
-    <string name="label_memo">Translation</string>
-    <string name="label_memo_description">(Optional) Notes about the counter e.g. recite 1000 times daily, read 100 times on Fridays, etc.</string>
+    <string name="label_memo">Description</string>
+    <string name="label_memo_description">Prayer\'s details.</string>
 
     <string name="label_yes">Okay</string>
     <string name="label_no">Cancel</string>
@@ -31,4 +31,34 @@
     <string name="delete_confirmation">Do you really want to delete the counter? Proceed with caution. This action is permanent.</string>
     <string name="reset_confirmation">This action would reset the counter value. Proceed with caution.</string>
     <string name="label_finished">Finished: %1$d</string>
+
+    <string name="counter_1">الحمد لله</string>
+    <string name="counter_1_desc">All the praises and thanks be to Allah</string>
+
+    <string name="counter_2">سبحان الله</string>
+    <string name="counter_2_desc">(37: 159–160) Exalted is Allah above what they describe, except the chosen servants of Allah [who do not share in that sin].</string>
+
+    <string name="counter_3">الله أكبر</string>
+    <string name="counter_3_desc">Allah is the Greatest</string>
+
+    <string name="counter_4">بسم الله</string>
+    <string name="counter_4_desc">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</string>
+
+    <string name="counter_5">درود إبراهيمي</string>
+    <string name="counter_5_desc">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ.
+كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ.
+.إِنَّكَ حَمِيدٌ مَجِيدٌ.
+اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ.
+كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ.
+.إِنَّكَ حَمِيدٌ مَجِيدٌ.</string>
+
+    <string name="counter_6">آية الكرسي</string>
+    <string name="counter_6_desc">اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهم وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ</string>
+
+    <string name="counter_7">سُّورَةُ الْفَاتِحَة‎</string>
+    <string name="counter_7_desc">ٱلْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ. ٱلرَّحْمَٰنِ ٱلرَّحِيمِ. مٰالِكِ يَوْمِ ٱلدِّينِ. إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ. ٱهْدِنَا الصِّرَاطَ ٱلْمُسْتَقِيمَ. صِرَاطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّين</string>
+
+    <string name="counter_8">سورة الإخلاص</string>
+    <string name="counter_8_desc">قُلْ هُوَ ٱللَّهُ أَحَدٌ. ٱللَّهُ ٱلصَّمَدُ. لَمْ يَلِدْ وَلَمْ يُولَدْ. وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ</string>
+
 </resources>
