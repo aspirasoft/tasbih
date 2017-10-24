@@ -4,8 +4,7 @@
 
     <string name="title_counters">تسبیح ہوم</string>
 
-    <string name="placeholder_counter_value">تعداد</string>
-    <string name="placeholder_memo">کوئی نوٹ منسلک نہیں ہے</string>
+    <string name="placeholder_memo">کوئی ترجمہ منسلک نہیں ہے</string>
 
     <string name="label_add">بنائیں</string>
     <string name="label_add_description">نئی تسبیح بنائیں</string>
@@ -15,7 +14,7 @@
     <string name="label_name">نام</string>
     <string name="label_name_description">تسبیح کا نام</string>
 
-    <string name="label_memo">اختیاری نوٹ</string>
+    <string name="label_memo">ترجمہ</string>
     <string name="label_memo_description"> مثال کے طور پر روزانہ ہزار بار پڑھیں، جمعہ کو دس لاکھ بار پڑھیں</string>
 
     <string name="label_yes">ٹھیک ہے</string>
@@ -28,4 +27,5 @@
     <string name="confirmation_prompt">احتیاط کریں</string>
     <string name="delete_confirmation">یہ کارروائی اس تسبیح کو حذف کر دے گی</string>
     <string name="reset_confirmation">یہ کارروائی اس تسبیح کو صفر کر دے گی</string>
+    <string name="label_finished">مکمل: %1$d</string>
 </resources>

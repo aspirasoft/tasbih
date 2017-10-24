@@ -19,10 +19,12 @@ import com.google.android.gms.ads.AdView;
 import pk.aspirasoft.tasbih.R;
 import pk.aspirasoft.tasbih.data.Counter;
 import pk.aspirasoft.tasbih.data.CounterManager;
+import pk.aspirasoft.tasbih.views.CounterView;
 
-public class ActiveCounter extends AppCompatActivity implements View.OnClickListener {
+public class ActiveCounter extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
     private Counter counter;
+    private CounterView counterView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,10 @@ public class ActiveCounter extends AppCompatActivity implements View.OnClickList
         mAdView.loadAd(adRequest);
 
         counter = new Counter(getIntent().getStringExtra("counter"));
+        counterView = (CounterView) findViewById(R.id.counter);
+        counterView.setOnLongClickListener(this);
+        counterView.setOnClickListener(this);
+        counterView.setMax(counter.getMax());
 
         setSupportActionBar((Toolbar) findViewById(R.id.actionBar));
         ActionBar actionBar = getSupportActionBar();
@@ -51,12 +57,8 @@ public class ActiveCounter extends AppCompatActivity implements View.OnClickList
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        if (!counter.getDescription().equals(""))
-            ((TextView) findViewById(R.id.description)).setText(counter.getDescription());
+        ((TextView) findViewById(R.id.description)).setText(counter.getDescription());
         updateUI();
-
-        findViewById(R.id.plus).setOnClickListener(this);
-        findViewById(R.id.minus).setOnClickListener(this);
     }
 
     @Override
@@ -133,21 +135,30 @@ public class ActiveCounter extends AppCompatActivity implements View.OnClickList
     }
 
     private void updateUI() {
-        ((TextView) findViewById(R.id.value)).setText(String.valueOf(counter.getValue()));
+        counterView.setCompleted(counter.getValue() / counter.getMax());
+        counterView.setProgress(counter.getValue() % counter.getMax());
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.plus:
+            case R.id.counter:
                 counter.increment();
                 updateUI();
                 break;
-            case R.id.minus:
+        }
+    }
+
+
+    @Override
+    public boolean onLongClick(View view) {
+        switch (view.getId()) {
+            case R.id.counter:
                 counter.decrement();
                 updateUI();
-                break;
+                return true;
         }
+        return false;
     }
 
     @Override
@@ -162,4 +173,5 @@ public class ActiveCounter extends AppCompatActivity implements View.OnClickList
         manager.diskOut();
         super.onPause();
     }
+
 }

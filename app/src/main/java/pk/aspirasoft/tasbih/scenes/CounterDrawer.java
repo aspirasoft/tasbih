@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,7 +26,7 @@ import pk.aspirasoft.tasbih.data.CounterManager;
 
 public class CounterDrawer extends AppCompatActivity implements View.OnClickListener {
 
-    private boolean gridView = true;
+    private boolean gridView = false;
     private CounterManager manager;
     private LinearLayout rootView;
 
@@ -212,37 +211,17 @@ public class CounterDrawer extends AppCompatActivity implements View.OnClickList
         rootView = (LinearLayout) findViewById(R.id.rootView);
         rootView.removeAllViews();
 
-        // Inflate new counter button
-        getLayoutInflater().inflate(R.layout.drawer_list_item, rootView);
-
-        LinearLayout cell = (LinearLayout) rootView.getChildAt(rootView.getChildCount() - 1);
-        ImageButton logo = (ImageButton) cell.findViewById(R.id.logo);
-        TextView label = (TextView) cell.findViewById(R.id.title);
-        TextView about = (TextView) cell.findViewById(R.id.description);
-
-        logo.setImageResource(android.R.drawable.ic_menu_add);
-        label.setText(getString(R.string.label_add));
-        about.setText(getString(R.string.label_add_description));
-
-        cell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), CreateCounter.class));
-            }
-        });
-
         for (int i = 0; i < manager.size(); i++) {
             // Inflate cell
             getLayoutInflater().inflate(R.layout.drawer_list_item, rootView);
 
-            cell = (LinearLayout) rootView.getChildAt(rootView.getChildCount() - 1);
-            logo = (ImageButton) cell.findViewById(R.id.logo);
-            label = (TextView) cell.findViewById(R.id.title);
-            about = (TextView) cell.findViewById(R.id.description);
+            LinearLayout cell = (LinearLayout) rootView.getChildAt(rootView.getChildCount() - 1);
+            TextView label = (TextView) cell.findViewById(R.id.title);
+            TextView value = (TextView) cell.findViewById(R.id.value);
 
             final Counter counter = manager.get(i);
             label.setText(counter.getName());
-            about.setText(counter.getDescription());
+            value.setText(String.valueOf(counter.getValue()));
 
             cell.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -267,26 +246,14 @@ public class CounterDrawer extends AppCompatActivity implements View.OnClickList
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.home, menu);
-        MenuItem item = menu.getItem(0);
-
-        // Read view preferences
-        gridView = getSharedPreferences("count-drawer", MODE_PRIVATE)
-                .getBoolean("GridView", true);
-
-        // Change action bar icon
-        if (gridView) {
-            item.setIcon(R.drawable.ic_action_list);
-        } else {
-            item.setIcon(R.drawable.ic_action_grid);
-        }
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.toggleView:
-                toggleView(item);
+            case R.id.add_counter:
+                startActivity(new Intent(getApplicationContext(), CreateCounter.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
