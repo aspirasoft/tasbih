@@ -3,23 +3,23 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <ImageButton
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_gravity="center"
-        android:scaleType="centerInside"
-        android:contentDescription="Thumbnail of the counter." />
+        android:contentDescription="Thumbnail of the counter."
+        android:scaleType="centerInside" />
 
     <TextView
         android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:text="Counter Title"
-        android:textColor="#fff"
+        android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
-        android:ellipsize="end"/>
+        android:text="Counter Title"
+        android:textColor="#fff" />
 
 </LinearLayout>

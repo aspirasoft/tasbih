@@ -12,19 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data android:name="com.google.android.gms.games.APP_ID"
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
             android:value="@string/app_id" />
 
-        <activity android:name=".scenes.LaunchScreen" android:screenOrientation="portrait" >
+        <activity
+            android:name=".scenes.LaunchScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".scenes.CounterDrawer" android:screenOrientation="portrait" />
-        <activity android:name=".scenes.ActiveCounter" android:screenOrientation="portrait" android:parentActivityName=".scenes.CounterDrawer" />
-        <activity android:name=".scenes.CreateCounter" android:screenOrientation="portrait" android:parentActivityName=".scenes.CounterDrawer" />
-    </application>
 
+        <activity
+            android:name=".scenes.CounterDrawer"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".scenes.ActiveCounter"
+            android:parentActivityName=".scenes.CounterDrawer"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".scenes.CreateCounter"
+            android:parentActivityName=".scenes.CounterDrawer"
+            android:screenOrientation="portrait" />
+
+    </application>
 </manifest>
