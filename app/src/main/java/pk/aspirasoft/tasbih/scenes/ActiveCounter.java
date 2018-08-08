@@ -88,7 +88,7 @@ public class ActiveCounter extends AppCompatActivity implements View.OnClickList
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setTitle(R.string.confirmation_prompt);
                     builder.setMessage(R.string.delete_confirmation);
-                    builder.setPositiveButton(R.string.label_yes, new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             manager.remove(found);
@@ -96,7 +96,7 @@ public class ActiveCounter extends AppCompatActivity implements View.OnClickList
                             finish();
                         }
                     });
-                    builder.setNegativeButton(R.string.label_no, new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -112,14 +112,14 @@ public class ActiveCounter extends AppCompatActivity implements View.OnClickList
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(R.string.confirmation_prompt);
                 builder.setMessage(R.string.reset_confirmation);
-                builder.setPositiveButton(R.string.label_yes, new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         counter.reset();
                         updateUI();
                     }
                 });
-                builder.setNegativeButton(R.string.label_no, new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
