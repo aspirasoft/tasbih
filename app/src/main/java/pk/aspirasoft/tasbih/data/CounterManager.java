@@ -9,7 +9,7 @@ public class CounterManager extends ArrayList<Counter> {
     private static CounterManager ourInstance;
     private final Database database;
 
-    private boolean isInitialized = false;
+    private boolean isInitialized;
 
     private CounterManager(Activity activity) {
         database = Database.getInstance(activity);
@@ -26,9 +26,7 @@ public class CounterManager extends ArrayList<Counter> {
     }
 
     public void addDefaultCounters(ArrayList<Counter> counters) {
-        for (Counter counter : counters) {
-            this.add(counter);
-        }
+        this.addAll(counters);
         diskOut();
         database.initialize();
     }
@@ -66,12 +64,12 @@ public class CounterManager extends ArrayList<Counter> {
 
     @Override
     public String toString() {
-        String string = "";
+        StringBuilder string = new StringBuilder();
         for (int i = 0; i < size(); i++) {
-            string += get(i).toString() + "\n";
+            string.append(get(i).toString()).append("\n");
         }
-        string += "";
-        return string;
+        string.append("");
+        return string.toString();
     }
 
     @Override

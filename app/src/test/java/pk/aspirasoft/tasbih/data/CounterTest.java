@@ -2,7 +2,7 @@ package pk.aspirasoft.tasbih.data;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CounterTest {
 
@@ -22,8 +22,7 @@ public class CounterTest {
 
         try {
             counter.setValue(-100);
-        }
-        catch (ArithmeticException ignored) {
+        } catch (ArithmeticException ignored) {
 
         } finally {
             assertEquals(counter.getValue(), 0);
