@@ -2,8 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
     android:orientation="horizontal"
-    android:weightSum="3"
-    android:layout_marginBottom="10dp">
-
-</LinearLayout>
+    android:weightSum="3" />

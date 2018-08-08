@@ -8,13 +8,12 @@
         android:id="@+id/donut_progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:elevation="4dp"
-        custom:donut_finished_color="#000"
+        custom:donut_finished_color="@color/black"
         custom:donut_finished_stroke_width="10dp"
         custom:donut_max="33"
         custom:donut_progress="15"
         custom:donut_text=""
-        custom:donut_unfinished_color="@android:color/darker_gray"
+        custom:donut_unfinished_color="@color/gray"
         custom:donut_unfinished_stroke_width="10dp" />
 
     <com.github.lzyzsd.circleprogress.CircleProgress
@@ -22,11 +21,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="15dp"
-        custom:circle_finished_color="@color/colorAccent"
+        custom:circle_finished_color="?attr/colorAccent"
         custom:circle_max="33"
         custom:circle_progress="15"
         custom:circle_suffix_text=""
-        custom:circle_unfinished_color="#000" />
+        custom:circle_unfinished_color="@color/black" />
 
     <TextView
         android:id="@+id/finished"

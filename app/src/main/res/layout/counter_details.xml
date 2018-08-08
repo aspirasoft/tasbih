@@ -3,17 +3,16 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_counter_active"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pk.aspirasoft.tasbih.scenes.ActiveCounter">
+    tools:context=".scenes.ActiveCounter">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/actionBar"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
+        android:layout_height="?actionBarSize"
         android:layout_alignParentTop="true"
-        android:background="@color/colorPrimaryDark"
+        android:background="?attr/colorPrimaryDark"
         android:elevation="4dp">
 
     </android.support.v7.widget.Toolbar>
@@ -49,7 +48,7 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
                     android:text="@string/label_memo"
-                    android:textColor="#000"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <TextView
@@ -59,7 +58,7 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
                     android:text="@string/placeholder_memo"
-                    android:textColor="#000"
+                    android:textColor="@color/black"
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -98,7 +97,6 @@
                     android:id="@+id/counter"
                     android:layout_width="250dp"
                     android:layout_height="250dp"
-                    android:elevation="4dp"
                     custom:max="33"
                     custom:progress="0" />
 
