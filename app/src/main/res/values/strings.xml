@@ -11,8 +11,6 @@
 
     <string name="label_add">Add</string>x
     <string name="label_add_description">Create Tasbih</string>
-    <string name="label_decrement">Minus</string>
-    <string name="label_increment">Plus</string>
 
     <string name="label_name">Title</string>
     <string name="label_name_description">Name of the prayer.</string>
@@ -23,7 +21,6 @@
     <string name="label_yes">Okay</string>
     <string name="label_no">Cancel</string>
 
-    <string name="hint_change_layout">Toggle View</string>
     <string name="hint_delete">Delete</string>
     <string name="hint_reset">Reset</string>
 
