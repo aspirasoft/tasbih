@@ -8,4 +8,10 @@
         android:title="@string/label_add_description"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/drawer_type"
+        android:icon="@drawable/ic_action_list"
+        android:title="@string/desc_drawer_type"
+        app:showAsAction="ifRoom" />
+
 </menu>

@@ -4,6 +4,9 @@
 
     <string name="title_counters">تسبیح ہوم</string>
 
+    <string name="desc_logo">لوگو</string>
+    <string name="desc_drawer_type">مینو کا سٹائل</string>
+
     <string name="placeholder_memo">کوئی ترجمہ منسلک نہیں ہے</string>
 
     <string name="label_add">بنائیں</string>
@@ -14,9 +17,6 @@
 
     <string name="label_memo">ترجمہ</string>
     <string name="label_memo_description"> مثال کے طور پر روزانہ ہزار بار پڑھیں، جمعہ کو دس لاکھ بار پڑھیں</string>
-
-    <string name="label_yes">ٹھیک ہے</string>
-    <string name="label_no">منسوخ کریں</string>
 
     <string name="hint_reset">صفر کریں</string>
     <string name="hint_delete">حذف کریں</string>

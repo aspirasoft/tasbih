@@ -178,7 +178,7 @@ public class CounterDrawer extends AppCompatActivity implements View.OnClickList
                             AlertDialog.Builder builder = new AlertDialog.Builder(CounterDrawer.this);
                             builder.setTitle(R.string.confirmation_prompt);
                             builder.setMessage(R.string.delete_confirmation);
-                            builder.setPositiveButton(R.string.label_yes, new DialogInterface.OnClickListener() {
+                            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     manager.remove(found);
@@ -186,7 +186,7 @@ public class CounterDrawer extends AppCompatActivity implements View.OnClickList
                                     updateDisplay();
                                 }
                             });
-                            builder.setNegativeButton(R.string.label_no, new DialogInterface.OnClickListener() {
+                            builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
@@ -246,6 +246,15 @@ public class CounterDrawer extends AppCompatActivity implements View.OnClickList
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.home, menu);
+
+        MenuItem item = menu.findItem(R.id.drawer_type);
+        if (item != null) {
+            if (gridView) {
+                item.setIcon(R.drawable.ic_action_list);
+            } else {
+                item.setIcon(R.drawable.ic_action_grid);
+            }
+        }
         return true;
     }
 
@@ -254,6 +263,9 @@ public class CounterDrawer extends AppCompatActivity implements View.OnClickList
         switch (item.getItemId()) {
             case R.id.add_counter:
                 startActivity(new Intent(getApplicationContext(), CreateCounter.class));
+                return true;
+            case R.id.drawer_type:
+                toggleView(item);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

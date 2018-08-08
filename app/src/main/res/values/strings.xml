@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">Tasbih</string>
     <string name="app_version">2.1.0</string>
+    <string name="company_name" translatable="false">AspiraSoft</string>
 
     <string name="app_id" translatable="false">5243770836</string>
     <string name="ad_unit_id" translatable="false">ca-app-pub-6293532072634065/4510334430</string>
 
     <string name="title_counters">Tasbih</string>
+
+    <string name="desc_logo">Logo</string>
+    <string name="desc_drawer_type">Drawer type</string>
 
     <string name="placeholder_memo">No description added.</string>
 
@@ -17,9 +21,6 @@
 
     <string name="label_memo">Description</string>
     <string name="label_memo_description">Prayer\'s details.</string>
-
-    <string name="label_yes">Okay</string>
-    <string name="label_no">Cancel</string>
 
     <string name="hint_delete">Delete</string>
     <string name="hint_reset">Reset</string>
@@ -58,7 +59,5 @@
 
     <string name="counter_8">سورة الإخلاص</string>
     <string name="counter_8_desc">قُلْ هُوَ ٱللَّهُ أَحَدٌ. ٱللَّهُ ٱلصَّمَدُ. لَمْ يَلِدْ وَلَمْ يُولَدْ. وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ</string>
-    <string name="desc_logo">Logo</string>
-    <string name="company_name">AspiraSoft</string>
 
 </resources>
