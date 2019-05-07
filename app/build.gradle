@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "pk.aspirasoft.tasbih"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 6
         versionName "2.2.0"
@@ -40,3 +40,4 @@ repositories {
 }
 
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android-extensions'
