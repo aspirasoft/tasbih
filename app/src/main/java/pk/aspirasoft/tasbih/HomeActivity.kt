@@ -24,7 +24,6 @@ import pk.aspirasoft.tasbih.models.Database
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
     private var rootView: LinearLayout? = null
-
     private var dl: DrawerLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,8 +43,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         mAdView.loadAd(adRequest)
 
         findViewById<View>(R.id.create_button)?.setOnClickListener(this)
+        findViewById<View>(R.id.count_button)?.setOnClickListener(this)
 
-        dl = findViewById<DrawerLayout>(R.id.activity_home)
+        dl = findViewById(R.id.activity_home)
         val t = ActionBarDrawerToggle(this, dl, R.string.drawer_open, R.string.drawer_close)
 
         dl?.addDrawerListener(t)
@@ -81,14 +81,16 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return if (item?.itemId == android.R.id.home) {
-            dl?.openDrawer(Gravity.START)
-            true
-        } else if (item?.itemId == R.id.privacy_policy) {
-            startActivity(Intent(this@HomeActivity, PrivacyActivity::class.java))
-            true
-        } else {
-            super.onOptionsItemSelected(item)
+        return when {
+            item?.itemId == android.R.id.home -> {
+                dl?.openDrawer(Gravity.START)
+                true
+            }
+            item?.itemId == R.id.privacy_policy -> {
+                startActivity(Intent(this@HomeActivity, PrivacyActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -108,6 +110,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.create_button -> startActivity(Intent(applicationContext, CreateActivity::class.java))
+            R.id.count_button -> startActivity(Intent(applicationContext, TasbihActivity::class.java))
         }
     }
 
@@ -116,7 +119,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         rootView = findViewById<View>(R.id.rootView) as LinearLayout
         rootView!!.removeAllViews()
 
-        for (i in CounterManager.indices) {
+        for (counter in CounterManager) {
+            if (counter.name.isEmpty()) continue
+
             // Inflate cell
             layoutInflater.inflate(R.layout.listitem_tasbih, rootView)
 
@@ -124,7 +129,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             val label = cell.findViewById<View>(R.id.title) as TextView
             val description = cell.findViewById<View>(R.id.description) as TextView
 
-            val counter = CounterManager[i]
             label.text = counter.name
             label.typeface = Typeface.createFromAsset(assets, "fonts/al-qalam.ttf")
 

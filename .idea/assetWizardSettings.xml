@@ -90,6 +90,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
+                                                <entry key="scalingPercent" value="99" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -102,6 +103,7 @@
                                     <map>
                                       <entry key="backgroundImage" value="$USER_HOME$/Google Drive (Personal)/AspiraSoft/Products/Mobile Applications/Tasbih/ic_background.png" />
                                       <entry key="foregroundImage" value="$USER_HOME$/Google Drive (Personal)/AspiraSoft/Products/Mobile Applications/Tasbih/ic_foreground.png" />
+                                      <entry key="legacyIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -149,11 +151,6 @@
                                 </PersistentState>
                               </value>
                             </entry>
-                          </map>
-                        </option>
-                        <option name="values">
-                          <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>

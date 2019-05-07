@@ -70,25 +70,28 @@
             android:orientation="horizontal">
 
             <android.support.design.button.MaterialButton
-                android:id="@+id/create_button"
-                android:layout_width="38dp"
+                android:id="@+id/count_button"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:text="Start Counting"
+                android:textColor="@color/colorAccent"
+                ads:backgroundTint="@android:color/white"
+                ads:cornerRadius="24dp"
+                ads:strokeColor="@color/colorAccent"
+                ads:strokeWidth="1dp" />
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/create_button"
+                android:layout_width="38dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
                 ads:cornerRadius="24dp"
                 ads:icon="@android:drawable/ic_input_add"
                 ads:iconPadding="4dp"
                 ads:iconSize="18dp" />
-
-            <android.support.design.button.MaterialButton
-                android:id="@+id/count_button"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Quick Count"
-                ads:backgroundTint="@color/colorPrimaryDark"
-                ads:cornerRadius="24dp" />
 
 
         </LinearLayout>

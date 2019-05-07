@@ -37,6 +37,10 @@ class TasbihApp : Application() {
 
     private fun createDefaults() {
         val counters = ArrayList<Tasbih>()
+        Tasbih(name = "", description = "No notes added").apply {
+            counters.add(this)
+        }
+
         Tasbih("تسبیح الزهراء",
                 "Commonly attributed to Hazrat Fatima (RA), this tasbeeh is recited once after each prayer.\n\n" +
                         "Subhan Allah (33x) Alhamdulillah (33x) Allahu Akbar (34x)")
