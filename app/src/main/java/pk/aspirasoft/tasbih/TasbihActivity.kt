@@ -50,8 +50,12 @@ class TasbihActivity : AppCompatActivity() {
         // Get current tasbih
         val counterData = intent.getStringExtra("tasbih")
         if (counterData == null) {
-            finish()
-            return
+            for (counter in CounterManager) {
+                if (counter.name.isBlank()) {
+                    tasbih = counter
+                    break
+                }
+            }
         } else tasbih = Tasbih(counterData)
 
         counterView = findViewById(R.id.counter)
