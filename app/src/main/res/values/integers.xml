@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="counter_1_max">33</integer>
-    <integer name="counter_2_max">33</integer>
-    <integer name="counter_3_max">34</integer>
-    <integer name="counter_4_max">100</integer>
-    <integer name="counter_5_max">100</integer>
-    <integer name="counter_6_max">100</integer>
-    <integer name="counter_7_max">100</integer>
-    <integer name="counter_8_max">3</integer>
+    <integer name="dua1_max">33</integer>
+    <integer name="dua2_max">33</integer>
+    <integer name="dua3_max">34</integer>
+    <integer name="dua4_max">100</integer>
+    <integer name="dua5_max">100</integer>
+    <integer name="dua6_max">100</integer>
+    <integer name="dua7_max">100</integer>
+    <integer name="dua8_max">3</integer>
 </resources>

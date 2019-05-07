@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/quranic_passages"
+        android:icon="@drawable/ic_menu_passages"
+        android:title="Quranic Passages" />
+
+    <item
+        android:id="@+id/darood_collection"
+        android:icon="@drawable/ic_menu_darood"
+        android:title="Darood Collection" />
+
+    <item
+        android:id="@+id/rabbana_prayers"
+        android:icon="@drawable/ic_menu_quran"
+        android:title="Rabbana Prayers" />
+
+    <item
+        android:id="@+id/other_prayers"
+        android:icon="@drawable/ic_menu_prayers"
+        android:title="Other Prayers" />
+
+</menu>
