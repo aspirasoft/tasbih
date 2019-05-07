@@ -27,8 +27,8 @@ class Dua {
         this.ar = original
         this.ar_en = transliteration
         this.en = translation
-        this.source = null
-        this.title = null
+        this.source = source
+        this.title = title
     }
 
     @Throws(InstantiationException::class)
