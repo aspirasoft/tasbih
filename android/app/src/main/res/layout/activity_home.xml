@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                           xmlns:ads="http://schemas.android.com/apk/res-auto"
+                                           xmlns:tools="http://schemas.android.com/tools"
+                                           android:id="@+id/activity_home"
+                                           android:layout_width="match_parent"
+                                           android:layout_height="match_parent"
+                                           tools:context=".HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="16dp"
+            android:background="#0000"
+            ads:navigationIcon="@drawable/ic_action_menu" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/date_view"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="?actionBarSize"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:clickable="false"
+            android:focusable="false"
+            android:longClickable="false"
+            android:textColor="@color/colorPrimary"
+            android:visibility="gone"
+            ads:strokeColor="@color/colorPrimary" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@id/adView"
+            android:layout_below="@+id/toolbar">
+
+            <LinearLayout
+                android:id="@+id/rootView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" />
+
+        </ScrollView>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/ad_unit_id" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/count_button"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Start Counting"
+                android:textColor="@color/colorAccent"
+                ads:backgroundTint="@android:color/white"
+                ads:cornerRadius="24dp"
+                ads:strokeColor="@color/colorAccent"
+                ads:strokeWidth="1dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_button"
+                android:layout_width="38dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                ads:cornerRadius="24dp"
+                ads:icon="@android:drawable/ic_input_add"
+                ads:iconPadding="4dp"
+                ads:iconSize="18dp" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        ads:headerLayout="@layout/nav_header"
+        ads:menu="@menu/navigation_main" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
