@@ -35,7 +35,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@id/adView"
         android:layout_below="@+id/toolbar">
 
         <LinearLayout
@@ -46,14 +45,5 @@
             android:orientation="vertical" />
 
     </ScrollView>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/ad_unit_id" />
 
 </RelativeLayout>

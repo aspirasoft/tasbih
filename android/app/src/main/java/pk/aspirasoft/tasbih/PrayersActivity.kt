@@ -2,13 +2,10 @@ package pk.aspirasoft.tasbih
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.button.MaterialButton
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.LinearLayout
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.button.MaterialButton
 import pk.aspirasoft.tasbih.models.Database
 import pk.aspirasoft.tasbih.models.PrayersDatabase
 import pk.aspirasoft.tasbih.views.DuaView
@@ -30,18 +27,6 @@ class PrayersActivity : AppCompatActivity(), View.OnClickListener {
             finish()
             return
         }
-
-        // Integrate AdMob
-        val mAdView = findViewById<View>(R.id.adView) as AdView
-        val adRequest = AdRequest.Builder().build()
-        mAdView.visibility = View.GONE
-        mAdView.adListener = object : AdListener() {
-            override fun onAdLoaded() {
-                super.onAdLoaded()
-                mAdView.visibility = View.VISIBLE
-            }
-        }
-        mAdView.loadAd(adRequest)
 
         findViewById<View>(R.id.create_button)?.setOnClickListener(this)
 

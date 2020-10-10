@@ -3,20 +3,17 @@ package pk.aspirasoft.tasbih
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.navigation.NavigationView
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.navigation.NavigationView
 import pk.aspirasoft.tasbih.models.CounterManager
 import pk.aspirasoft.tasbih.models.Database
 
@@ -29,18 +26,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
-        // Integrate AdMob
-        val mAdView = findViewById<View>(R.id.adView) as AdView
-        val adRequest = AdRequest.Builder().build()
-        mAdView.visibility = View.GONE
-        mAdView.adListener = object : AdListener() {
-            override fun onAdLoaded() {
-                super.onAdLoaded()
-                mAdView.visibility = View.VISIBLE
-            }
-        }
-        mAdView.loadAd(adRequest)
 
         findViewById<View>(R.id.create_button)?.setOnClickListener(this)
         findViewById<View>(R.id.count_button)?.setOnClickListener(this)
@@ -55,23 +40,20 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        findViewById<NavigationView>(R.id.nv).setNavigationItemSelectedListener(
-                object : NavigationView.OnNavigationItemSelectedListener {
-                    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                        when (item.itemId) {
-                            R.id.quranic_passages,
-                            R.id.darood_collection,
-                            R.id.rabbana_prayers,
-                            R.id.other_prayers -> {
-                                val i = Intent(applicationContext, PrayersActivity::class.java)
-                                i.putExtra("category", item.title.toString())
-                                startActivity(i)
-                            }
-                        }
-                        return true
-                    }
+        findViewById<NavigationView>(R.id.nv).setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.quranic_passages,
+                R.id.darood_collection,
+                R.id.rabbana_prayers,
+                R.id.other_prayers
+                -> {
+                    val i = Intent(applicationContext, PrayersActivity::class.java)
+                    i.putExtra("category", item.title.toString())
+                    startActivity(i)
                 }
-        )
+            }
+            true
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -81,12 +63,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when {
-            item?.itemId == android.R.id.home -> {
+        return when (item?.itemId) {
+            android.R.id.home -> {
                 dl?.openDrawer(Gravity.START)
                 true
             }
-            item?.itemId == R.id.privacy_policy -> {
+            R.id.privacy_policy -> {
                 startActivity(Intent(this@HomeActivity, PrivacyActivity::class.java))
                 true
             }

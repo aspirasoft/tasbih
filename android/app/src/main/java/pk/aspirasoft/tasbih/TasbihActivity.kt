@@ -1,21 +1,18 @@
 package pk.aspirasoft.tasbih
 
+import android.content.res.ColorStateList
 import android.graphics.Typeface
 import android.os.Bundle
-import com.google.android.material.button.MaterialButton
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.TextView
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import kotlinx.android.synthetic.main.activity_tasbih.*
 import pk.aspirasoft.tasbih.models.CounterManager
-import pk.aspirasoft.tasbih.models.Database
 import pk.aspirasoft.tasbih.models.Tasbih
 import pk.aspirasoft.tasbih.views.CounterView
 import pk.aspirasoft.tasbih.views.DuaView
@@ -31,21 +28,9 @@ class TasbihActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tasbih)
 
         // Setup action bar
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setSupportActionBar(toolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        // Integrate AdMob
-        val mAdView = findViewById<View>(R.id.adView) as AdView
-        val adRequest = AdRequest.Builder().build()
-        mAdView.visibility = View.GONE
-        mAdView.adListener = object : AdListener() {
-            override fun onAdLoaded() {
-                super.onAdLoaded()
-                mAdView.visibility = View.VISIBLE
-            }
-        }
-        mAdView.loadAd(adRequest)
 
         // Get current tasbih
         val counterData = intent.getStringExtra("tasbih")
@@ -58,7 +43,7 @@ class TasbihActivity : AppCompatActivity() {
             }
         } else tasbih = Tasbih(counterData)
 
-        counterView = findViewById(R.id.counter)
+        counterView = counter
         counterView.max = tasbih.countMax
 
         // Show tasbih details
@@ -74,24 +59,36 @@ class TasbihActivity : AppCompatActivity() {
 
         // Show prayers content
         for (prayer in tasbih.prayers) {
+            info.visibility = View.VISIBLE
             val d = DuaView(counterView.context)
             d.updateWith(prayer)
 
-            findViewById<LinearLayout>(R.id.rootView)
-                    ?.addView(d)
+            rootView?.addView(d)
         }
 
         // Show tasbih stats
         updateUI()
 
-        findViewById<View>(R.id.plus)?.setOnClickListener {
+        plus?.setOnClickListener {
             ++tasbih
             updateUI()
         }
 
-        findViewById<View>(R.id.minus)?.setOnClickListener {
+        minus?.setOnClickListener {
             --tasbih
             updateUI()
+        }
+
+        info.iconTint = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.material_on_background_disabled))
+        infoView.visibility = View.GONE
+        info.setOnClickListener {
+            infoView.visibility = if (infoView.visibility == View.GONE) {
+                info.iconTint = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimaryDark))
+                View.VISIBLE
+            } else {
+                info.iconTint = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.material_on_background_disabled))
+                View.GONE
+            }
         }
     }
 
@@ -102,7 +99,7 @@ class TasbihActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.reset -> {
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle(R.string.confirmation_prompt)
@@ -113,9 +110,9 @@ class TasbihActivity : AppCompatActivity() {
                 }
                 builder.setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.dismiss() }
                 builder.create().show()
-                return true
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -149,14 +146,6 @@ class TasbihActivity : AppCompatActivity() {
         }
         CounterManager.diskOut()
         super.onPause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Database.get("today")?.let { date ->
-            findViewById<MaterialButton>(R.id.date_view).text = date
-            findViewById<MaterialButton>(R.id.date_view).visibility = View.VISIBLE
-        }
     }
 
 }

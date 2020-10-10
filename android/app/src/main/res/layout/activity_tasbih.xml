@@ -1,133 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".TasbihActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="16dp"
-        android:background="#0000"
-        ads:navigationIcon="@drawable/ic_action_back" />
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?actionBarSize"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentTop="true"
+      android:background="#0000"
+      app:navigationIcon="@drawable/ic_action_back"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/date_view"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="?actionBarSize"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:longClickable="false"
-        android:textColor="@color/colorPrimary"
-        android:visibility="gone"
-        ads:strokeColor="@color/colorPrimary" />
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/title"
+      style="@style/Widget.MaterialComponents.Button.TextButton"
+      android:layout_width="wrap_content"
+      android:layout_height="?actionBarSize"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:clickable="false"
+      android:focusable="false"
+      android:longClickable="false"
+      android:text="@string/label_name"
+      android:textAllCaps="true"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+      android:textColor="@color/colorPrimary"
+      android:textStyle="bold"/>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+  <pk.aspirasoft.tasbih.views.CounterView
+      android:id="@+id/counter"
+      android:layout_width="256dp"
+      android:layout_height="256dp"
+      android:layout_below="@id/toolbar"
+      android:layout_centerHorizontal="true"
+      android:layout_margin="16dp"
+      custom:max="33"
+      custom:progress="0"/>
+
+  <ScrollView
+      android:id="@+id/infoView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@id/counter"
+      android:layout_above="@id/controllers"
+      android:visibility="gone">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/ad_unit_id" />
+        android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/adView"
-        android:layout_below="@id/toolbar">
+      <TextView
+          android:id="@+id/description"
+          style="@style/TextAppearance.MaterialComponents.Body1"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_margin="8dp"
+          android:gravity="center"
+          android:text="@string/dua1_en"/>
+
+      <HorizontalScrollView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/rootView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="horizontal"/>
 
-            <pk.aspirasoft.tasbih.views.CounterView
-                android:id="@+id/counter"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_margin="16dp"
-                custom:max="33"
-                custom:progress="0" />
+      </HorizontalScrollView>
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="-58dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp">
+    </LinearLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/minus"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                    android:layout_width="42dp"
-                    android:layout_height="52dp"
-                    android:layout_gravity="start|top"
-                    android:text="-"
-                    android:textStyle="bold"
-                    ads:cornerRadius="24dp" />
+  </ScrollView>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/plus"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                    android:layout_width="42dp"
-                    android:layout_height="52dp"
-                    android:layout_gravity="end|top"
-                    android:text="+"
-                    android:textStyle="bold"
-                    ads:cornerRadius="24dp" />
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:id="@+id/controllers"
+      android:layout_width="match_parent"
+      android:layout_height="56dp"
+      android:layout_alignParentBottom="true">
 
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/minus"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|center_vertical"
+        android:padding="12dp"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_action_minus"
+        app:iconSize="24dp"
+        app:iconTint="@color/colorPrimaryDark"
+        app:strokeColor="@color/colorPrimaryDark"/>
 
-            <TextView
-                android:id="@+id/title"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:gravity="center"
-                android:text="@string/label_name"
-                android:textColor="@color/colorAccent" />
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:id="@+id/info"
+        android:layout_width="24dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:padding="0dp"
+        android:visibility="gone"
+        app:icon="@drawable/ic_action_info"
+        app:iconSize="24dp"
+        app:iconTint="@color/material_on_background_disabled"
+        app:rippleColor="@android:color/transparent"/>
 
-            <TextView
-                android:id="@+id/description"
-                style="@style/TextAppearance.MaterialComponents.Caption"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:gravity="start"
-                android:text="@string/dua1_en" />
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:id="@+id/plus"
+        android:layout_width="48dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end|center_vertical"
+        android:padding="12dp"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_action_plus"
+        app:iconSize="24dp"/>
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:id="@+id/rootView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" />
-
-            </HorizontalScrollView>
-
-        </LinearLayout>
-
-    </ScrollView>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </RelativeLayout>

@@ -37,7 +37,7 @@ class TasbihApp : Application() {
 
     private fun createDefaults() {
         val counters = ArrayList<Tasbih>()
-        Tasbih(name = "", description = "No notes added").apply {
+        Tasbih(name = "", description = "").apply {
             counters.add(this)
         }
 
