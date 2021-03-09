@@ -1,8 +1,8 @@
 package pk.aspirasoft.tasbih.utils
 
 import android.content.Context
+import android.util.Log
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
@@ -25,12 +25,11 @@ class DateAnnoHegirae {
     var designation: Designation? = null
 
     override fun toString(): String {
-        try {
-            return day + " " + month!!.en + ", " + year
+        return try {
+            day + " " + month!!.en + ", " + year
         } catch (ignored: Exception) {
-            return ""
+            ""
         }
-
     }
 
     interface Listener {
@@ -56,18 +55,22 @@ class DateAnnoHegirae {
 
             // Instantiate the RequestQueue.
             val queue = Volley.newRequestQueue(context)
-            val url = "http://api.aladhan.com/v1/gToH?date=$nowAD"
+            val url = "https://api.aladhan.com/v1/gToH?date=$nowAD"
 
             // Request a string response from the provided URL.
             val stringRequest = StringRequest(Request.Method.GET, url,
-                    Response.Listener { response ->
-                        val gson = Gson()
-                        val jsonElement = gson.fromJson(response, JsonElement::class.java)
-                        val jsonObject = jsonElement.asJsonObject
+                { response ->
+                    val gson = Gson()
+                    val jsonElement = gson.fromJson(response, JsonElement::class.java)
+                    val jsonObject = jsonElement.asJsonObject
 
-                        val hijriElement = jsonObject.get("data").asJsonObject.get("hijri")
-                        listener.onReceived(gson.fromJson(hijriElement, DateAnnoHegirae::class.java))
-                    }, Response.ErrorListener { listener.onReceived(null) })
+                    val hijriElement = jsonObject.get("data").asJsonObject.get("hijri")
+                    listener.onReceived(gson.fromJson(hijriElement, DateAnnoHegirae::class.java))
+                },
+                {
+                    Log.e("Tasbih", it?.message ?: "error")
+                    listener.onReceived(null)
+                })
 
             // Add the request to the RequestQueue.
             queue.add(stringRequest)
